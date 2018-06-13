@@ -1,0 +1,35 @@
+body{
+    background-image: url("../images/background.jpg");
+    background-color: silver;
+}
+
+#instruct{
+
+    color: lightblue;
+    outline: 5px solid silver;
+ 
+}
+h1{
+    color:silver;
+}
+
+h2{
+    color:silver;
+}
+
+#cScore{
+    color:silver;
+}
+
+#uScore{
+    color:silver;
+}
+#output{
+    color:silver;
+}
+#para{
+    width:30px;
+    padding:0px;
+    border:0px;
+    margin:0px;
+}

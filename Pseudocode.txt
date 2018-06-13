@@ -1,0 +1,5 @@
+// Crystal Collector Pseudocode    
+// initialize screen with game name, instructions,// win lose counter, crystals, random number     // generator from computer, player score. 
+// setup computer's random number generator code
+// setup win lose counter
+// 
