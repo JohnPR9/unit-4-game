@@ -1,37 +1,53 @@
 console.log("my javascript is linked")
-var random;
-var userTotal;
+var goal;
+var counter;
 
-function generateNumber() {
-  
-    var random = Math.floor(Math.random() * ((120-19)+1 + 5));
-    Math.floor(Math.random() * 6 + 5);
- 
-    console.log("Random Computer Generator", random);
+var images = imageArray = [
+    "assets/images/pink.png", 
+    "assets/images/diamond.jpg", 
+    "assets/images/silver.jpg", 
+    "assets/images/emerald.jpg"
+];
 
-    return random;
-
+function setGoal(){
+    goal = Math.floor(Math.random() * (120 - 19 + 1 )) + 19 ;
+    console.log("goal: " + goal);
 }
 
-var cgRandom = generateNumber();
-console.log("cgRandom", cgRandom)
-$("#cScore").text(cgRandom);
-
-function userGenerated(pink, crystal, silver, red) {
-
-    var random = Math.floor(Math.random() * ((12-1)+1 + 5));
-    Math.floor(Math.random() * 6 + 5);
-
-    var ugRandom = random;
-    
-    console.log("Random User Guess Random", ugRandom);
-
-    return ugRandom;
+function startGame(){
+    counter = 0;
+    setGoal();
+    processCrystals();
 }
 
-var userScore = userGenerated();
-userTotal = userScore;
-$("#pink").text(userScore);
-// console.log("Random Pink Function pinkScore", pinkScore);
-// console.log("Random Pink Function userTotal", userTotal);
+function processCrystals() {
+    // $("#crystals").html("");
+    for (var i = 0; i < 4; i++) {
+        var randomNumber = Math.floor(Math.random() * (12 - 1 + 1 )) + 1;
+        $("#crystals").append(
+            "<img id='crystal" + i + "' class='crystal' value=" + randomNumber + " src=" + imageArray[i] + ">",           
+            "<div class='crystal"+ i + "'></div>"   
+        )
+    }
+}
+
+$(document).on("click", ".crystal", function(){
+  counter += parseInt($(this).attr("value"))
+  crystalId = $(this).attr("id");
+  $("#" + crystalId).html("");
+  $("#" + crystalId).append($(this).attr("value"))
+  if (counter === goal){
+    alert("you win");
+    startGame();
+  }
+  else if (counter > goal){
+
+  }
+  else{
+      console.log("good Play");
+  }
+})
+
+startGame();
+
 
